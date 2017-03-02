@@ -4,9 +4,9 @@ $grid-widths:       (2, 3, 4) !default;
 $grid-gutter-width: .75rem !default;
 
 // Breakpoints
-$tablet:     769px !default
-$desktop:    1000px !default
-$widescreen: 1192px !default
+$tablet:     769px !default;
+$desktop:    1000px !default;
+$widescreen: 1192px !default;
 
 // Mixins //////////////////////////////////////////////////////////////////////
 @mixin gridCreateWidths($widths) {
