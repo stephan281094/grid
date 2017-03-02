@@ -1,0 +1,44 @@
+// Variables ///////////////////////////////////////////////////////////////////
+$grid-namespace:    'o-grid' !default;
+$grid-widths:       (2, 3, 4) !default;
+$grid-gutter-width: .75rem !default;
+
+// Breakpoints
+$tablet:     769px !default
+$desktop:    1000px !default
+$widescreen: 1192px !default
+
+// Mixins //////////////////////////////////////////////////////////////////////
+@mixin gridCreateWidths($widths) {
+  @each $denominator in $widths {
+    @for $index from 1 to $denominator {
+      &--#{$index}-of-#{$denominator} {
+        flex: none;
+        width: percentage($index / $denominator);
+      }
+    }
+  }
+}
+
+// Grid layout /////////////////////////////////////////////////////////////////
+.#{$grid-namespace} {
+  margin-left: -$grid-gutter-width;
+  margin-right: -$grid-gutter-width;
+  margin-top: -$grid-gutter-width;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__col {
+    flex: 1;
+    padding-left: $grid-gutter-width;
+    padding-right: $grid-gutter-width;
+
+    &--1-of-1 {
+      flex: none;
+      width: 100%;
+    }
+
+    @include gridCreateWidths($grid-widths);
+  }
+}
