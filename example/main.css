@@ -21,8 +21,16 @@ body {
   overflow-x: hidden;
 }
 
+h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.o-head {
+  padding: 1rem;
+}
+
 .o-wrap {
-  padding-top: 1.5rem;
   margin: auto;
   max-width: 1200px;
 }
