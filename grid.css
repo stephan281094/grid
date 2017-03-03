@@ -1,5 +1,5 @@
 .o-grid {
-  margin-left: -24px;
+  margin-left: -16px;
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box; }
@@ -9,7 +9,7 @@
       padding-left: 0; }
   .o-grid__col {
     flex: 1;
-    padding-left: 24px;
+    padding-left: 16px;
     box-sizing: inherit; }
     .o-grid__col--1-of-1 {
       flex: none;
