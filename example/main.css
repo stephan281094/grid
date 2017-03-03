@@ -41,15 +41,3 @@ h1 {
   margin-bottom: 16px;
   padding: 5px;
 }
-
-.c-item--red {
-  background-color: #c00;
-}
-
-.c-item--green {
-  background-color: #0c0;
-}
-
-.c-item--blue {
-  background-color: #00c;
-}
