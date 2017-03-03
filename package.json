@@ -1,0 +1,15 @@
+{
+  "name": "inno-grid",
+  "version": "0.1.0",
+  "description": "A minimalistic BEM + ITCSS grid based on flexbox",
+  "main": "scss/grid.scss",
+  "repository": "git@github.com:stephan281094/grid.git",
+  "author": "stephan281094 <stephan281094@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "node-sass scss/grid.scss example/grid.css"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.0"
+  }
+}

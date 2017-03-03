@@ -1,7 +1,7 @@
 // Variables ///////////////////////////////////////////////////////////////////
 $grid-namespace:    'o-grid' !default;
 $grid-widths:       (2, 3, 4) !default;
-$grid-gutter-width: .75rem !default;
+$grid-gutter-width: 24px !default;
 
 // Breakpoints
 $tablet:     769px !default;
@@ -23,16 +23,21 @@ $widescreen: 1192px !default;
 // Grid layout /////////////////////////////////////////////////////////////////
 .#{$grid-namespace} {
   margin-left: -$grid-gutter-width;
-  margin-right: -$grid-gutter-width;
-  margin-top: -$grid-gutter-width;
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
 
+  &--no-gutter {
+    margin-left: 0;
+
+    > .#{$grid-namespace}__col {
+      padding-left: 0;
+    }
+  }
+
   &__col {
     flex: 1;
     padding-left: $grid-gutter-width;
-    padding-right: $grid-gutter-width;
     box-sizing: inherit;
 
     &--1-of-1 {
