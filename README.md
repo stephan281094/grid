@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="example/screenshot.png" alt="Screenshot">
+  <img src="https://github.com/stephan281094/grid/blob/master/example/screenshot.png"
+    alt="Screenshot">
 </p>
 
 # Grid
