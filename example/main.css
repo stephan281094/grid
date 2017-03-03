@@ -22,7 +22,6 @@ body {
 }
 
 h1 {
-  font-size: 4rem;
   margin: 0;
 }
 
@@ -39,8 +38,8 @@ h1 {
   color: #fff;
   background-color: #000;
   text-align: center;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 16px;
+  padding: 5px;
 }
 
 .c-item--red {
