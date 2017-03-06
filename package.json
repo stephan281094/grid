@@ -6,6 +6,9 @@
   "repository": "git@github.com:stephan281094/grid.git",
   "author": "stephan281094 <stephan281094@gmail.com>",
   "license": "MIT",
+  "files": [
+    "scss"
+  ],
   "scripts": {
     "build": "node-sass scss/grid.scss example/grid.css"
   },
