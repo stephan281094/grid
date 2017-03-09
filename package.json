@@ -10,9 +10,15 @@
     "scss"
   ],
   "scripts": {
-    "build": "node-sass scss/grid.scss example/grid.css"
+    "build": "NODE_ENV=production node ./build.js",
+    "dev": "node ./build.js --watch"
   },
   "devDependencies": {
-    "node-sass": "^4.5.0"
+    "chokidar": "^1.6.1",
+    "css-mqpacker": "^5.0.1",
+    "cssnano": "^3.10.0",
+    "minimist": "^1.2.0",
+    "node-sass": "^4.5.0",
+    "postcss": "^5.2.16"
   }
 }

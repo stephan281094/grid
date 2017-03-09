@@ -2,21 +2,66 @@
 $grid-namespace:    'o-grid' !default;
 $grid-widths:       (2, 3, 4) !default;
 $grid-gutter-width: 16px !default;
+$grid-breakpoints: (
+  'mob':   'screen and (max-width: 767px)',
+  'xs':    'screen and (max-width: 479px)',
+  'sm':    'screen and (min-width: 480px) and (max-width: 767px)',
+  'sm-up': 'screen and (min-width: 480px)',
+  'md':    'screen and (min-width: 768px) and (max-width: 999px)',
+  'md-up': 'screen and (min-width: 768px)',
+  'lg':    'screen and (min-width: 1000px)',
+  'xl':    'screen and (min-width: 1192px)',
+  'rt':    'screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx)'
+) !default;
 
-// Breakpoints
-$tablet:     769px !default;
-$desktop:    1000px !default;
-$widescreen: 1192px !default;
+// Flags
+$grid-enable-responsive: true !default;
 
 // Mixins //////////////////////////////////////////////////////////////////////
-@mixin gridCreateWidths($widths) {
+
+@mixin gridCreateWidths ($breakpoints, $widths) {
   @each $denominator in $widths {
     @for $index from 1 to $denominator {
       &--#{$index}-of-#{$denominator} {
         flex: none;
         width: percentage($index / $denominator);
       }
+
+      @if $grid-enable-responsive {
+        @each $alias, $query in $breakpoints {
+          @include mq($alias) {
+            &--#{$alias}-#{$index}-of-#{$denominator} {
+              flex: none;
+              width: percentage($index / $denominator);
+            }
+          }
+        }
+      }
     }
+
+    @if $grid-enable-responsive {
+      @each $alias, $query in $breakpoints {
+        @include mq($alias) {
+          &--#{$alias}-1-of-1 {
+            flex: none;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin mq ($alias) {
+  $query: map-get($grid-breakpoints, $alias);
+
+  // If alias exists, print out media query
+  @if $query {
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No breakpoint found for #{$alias}';
   }
 }
 
@@ -35,6 +80,21 @@ $widescreen: 1192px !default;
     }
   }
 
+  &--responsive {
+    @include mq('mob') {
+      > .#{$grid-namespace}__row > .#{$grid-namespace}__col,
+      > .#{$grid-namespace}__col {
+        flex: none;
+        width: 100%;
+      }
+    }
+  }
+
+  &__row {
+    width: 100%;
+    display: inherit;
+  }
+
   &__col {
     flex: 1;
     padding-left: $grid-gutter-width;
@@ -45,6 +105,6 @@ $widescreen: 1192px !default;
       width: 100%;
     }
 
-    @include gridCreateWidths($grid-widths);
+    @include gridCreateWidths($grid-breakpoints, $grid-widths);
   }
 }
