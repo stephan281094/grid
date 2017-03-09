@@ -14,7 +14,8 @@ const OUTPUT = path.join(__dirname, 'example/grid.css')
 
 // PostCSS plugins
 let plugins = [
-  require('css-mqpacker') // Merges common media queries into one
+  require('css-mqpacker'), // Merges common media queries into one
+  require('autoprefixer') // Adds vendor prefixes
 ]
 
 // Add PostCSS production plugins

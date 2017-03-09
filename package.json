@@ -14,6 +14,7 @@
     "dev": "node ./build.js --watch"
   },
   "devDependencies": {
+    "autoprefixer": "^6.7.6",
     "chokidar": "^1.6.1",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.10.0",
