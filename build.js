@@ -10,7 +10,7 @@ const postcss = require('postcss')
 
 // Input and output files.
 const INPUT = path.join(__dirname, 'scss/grid.scss')
-const OUTPUT = path.join(__dirname, 'example/grid.css')
+const OUTPUT = path.join(__dirname, 'dist/grid.css')
 
 // PostCSS plugins.
 let plugins = [
