@@ -10,8 +10,8 @@
     "scss"
   ],
   "scripts": {
-    "build": "NODE_ENV=production node ./build.js",
-    "dev": "node ./build.js --watch"
+    "build": "NODE_ENV=production node ./build",
+    "dev": "node ./build --watch"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.6",
@@ -20,6 +20,7 @@
     "cssnano": "^3.10.0",
     "minimist": "^1.2.0",
     "node-sass": "^4.5.0",
-    "postcss": "^5.2.16"
+    "postcss": "^5.2.16",
+    "socket.io": "^1.7.3"
   }
 }

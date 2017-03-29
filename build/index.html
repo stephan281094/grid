@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grid</title>
+</head>
+<body>
+  <h1>Grid</h1>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const hot = document.createElement('style')
+    hot.classList.add('hot')
+    hot.appendChild(document.createTextNode(''))
+    document.head.appendChild(hot)
+
+    const socket = io('http://localhost:3000')
+    socket.on('update', (style) => {
+      console.log(style.css)
+      hot.removeChild(hot.firstChild)
+      hot.appendChild(document.createTextNode(style.css))
+    })
+  </script>
+</body>
+</html>
