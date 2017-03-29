@@ -3,16 +3,14 @@ const path = require('path')
 const compile = require('./compile')
 const write = require('./write')
 const config = require('./config')
-const rootDir = path.join(__dirname, '..')
 const resolve = (file) => path.join(__dirname, '..', file)
 
 const build = async () => {
-  const compiledCSS = await compile(resolve(config.input), config.plugins)
-
   if (argv.watch) {
     // Start dev server
-    require('./dev-server')(config, compiledCSS)
+    require('./dev-server')(config)
   } else {
+    const compiledCSS = await compile(resolve(config.input), config.plugins)
     write(resolve(config.output), compiledCSS)
   }
 }
